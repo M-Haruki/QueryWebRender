@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width" />
+  <title>QueryWebRender - Description</title>
+</head>
+
+<body>
+  <h1>Query Web Render</h1>
+  <p>Use the query parameter <code>q</code> to render URL-encoded HTML content.</p>
+  <p>Example: <a href="?q=%3Ch1%3EHello%20World%3C%2Fh1%3E">?q=&lt;h1&gt;Hello World&lt;/h1&gt;</a></p>
+  <button onclick="
+    fetch('editer.html').then(response => response.text()).then(text => window.location.href = `/?q=${encodeURIComponent(text)}`);
+  ">
+    Open CodeEditer
+  </button>
+</body>
+
+</html>

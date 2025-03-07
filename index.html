@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>QueryWebRender</title>
+  <script id="script">
+    const params = (new URLSearchParams(window.location.search)).get('q');
+    if (params) {
+      document.querySelector('html').innerHTML = params;
+    } else {
+      fetch('description.html')
+        .then(response => response.text())
+        .then(text => window.location.href = `/?q=${encodeURIComponent(text)}`);
+    }
+  </script>
+</head>
+
+<body>
+</body>
+
+</html>

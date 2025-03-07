@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>QueryWebRender - Editer</title>
+  <style>
+    textarea {
+      width: 100%;
+      height: 60svh;
+      margin: 20px 0;
+      display: block;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Query Web Render - Editer</h1>
+  <textarea id="q"></textarea>
+  <button onclick="
+  navigator.clipboard.writeText(document.getElementById('q').value);
+    this.innerHTML = 'Copied';
+    setTimeout(() => {
+      this.innerHTML = 'Copy';
+    }, 1000);
+  ">Copy</button>
+  <button onclick="
+  if (confirm('Are you sure you want to clear the content?')) {
+    document.getElementById('q').value = '';
+  }
+  ">Clear</button>
+  <button onclick="
+  if (confirm('Are you sure you want to clear the content?')) {
+    fetch('template.html')
+      .then(response => response.text())
+      .then(text => document.getElementById('q').value = text);
+  }
+  ">Template</button>
+  <button onclick="
+    window.location.href = `/?q=${encodeURIComponent(document.getElementById('q').value)}`;
+  ">Render</button>
+  </form>
+</body>
+
+</html>
