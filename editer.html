@@ -37,7 +37,7 @@
   }
   ">Template</button>
   <button onclick="
-    window.location.href = `/?q=${encodeURIComponent(document.getElementById('q').value)}`;
+    window.location.search = `?q=${encodeURIComponent(document.getElementById('q').value)}`;
   ">Render</button>
   </form>
 </body>

@@ -11,7 +11,7 @@
     } else {
       fetch('description.html')
         .then(response => response.text())
-        .then(text => window.location.href = `/?q=${encodeURIComponent(text)}`);
+        .then(text => window.location.search = `?q=${encodeURIComponent(text)}`);
     }
   </script>
 </head>
